@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_amf" default="compile.module.amf">
+  <dirname property="module.amf.basedir" file="${ant.file.module_amf}"/>
+  
+  <property name="module.jdk.home.amf" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.amf" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.amf" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.amf" value="-encoding UTF-8 -source 8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="amf.output.dir" value="${module.amf.basedir}/target/classes"/>
+  <property name="amf.testoutput.dir" value="${module.amf.basedir}/target/test-classes"/>
+  
+  <path id="amf.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="amf.module.production.classpath">
+    <path refid="${module.jdk.classpath.amf}"/>
+    <path refid="library.maven:_org.glassfish.jersey.media:jersey-media-json-jackson:2.26.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-common:2.26.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.2.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:osgi-resource-locator:1.0.1.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.ext:jersey-entity-filtering:2.26.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.8.4.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.8.4.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.8.4.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.8.4.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.http2:http2-server:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.http2:http2-common:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.http2:http2-hpack:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-server:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_javax.servlet:javax.servlet-api:3.1.0.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-http:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-io:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-alpn-server:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-servlet:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-security:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.alpn:alpn-api:1.1.2.v20150522.classpath"/>
+    <path refid="library.maven:_com.squareup.okhttp:okhttp:2.5.0.classpath"/>
+    <path refid="library.maven:_com.squareup.okio:okio:1.6.0.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.inject:jersey-hk2:2.26.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-locator:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2.external:aopalliance-repackaged:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-api:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_javax.inject:javax.inject:1.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-utils:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.javassist:javassist:3.22.0-cr2.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.containers:jersey-container-servlet-core:2.26.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2.external:javax.inject:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-server:2.26.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-client:2.26.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.media:jersey-media-jaxb:2.26.classpath"/>
+    <path refid="library.maven:_javax.validation:validation-api:1.1.0.final.classpath"/>
+    <path refid="library.maven:_javax.ws.rs:javax.ws.rs-api:2.1.classpath"/>
+    <path refid="library.maven:_javax.json.bind:javax.json.bind-api:1.0.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-util:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-mapper-asl:1.9.13.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-core-asl:1.9.13.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:8.0.11.classpath"/>
+    <path refid="library.maven:_com.googlecode.json-simple:json-simple:1.1.1.classpath"/>
+    <path refid="library.maven:_junit:junit:4.10.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.1.classpath"/>
+    <path refid="library.alpn-boot-8.1.12.v20180117.classpath"/>
+  </path>
+  
+  <path id="amf.runtime.production.module.classpath">
+    <pathelement location="${amf.output.dir}"/>
+    <path refid="library.maven:_org.glassfish.jersey.media:jersey-media-json-jackson:2.26.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-common:2.26.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.2.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:osgi-resource-locator:1.0.1.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.ext:jersey-entity-filtering:2.26.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.8.4.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.8.4.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.8.4.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.8.4.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.http2:http2-server:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.http2:http2-common:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.http2:http2-hpack:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-server:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_javax.servlet:javax.servlet-api:3.1.0.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-http:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-io:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-alpn-server:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-servlet:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-security:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.alpn:alpn-api:1.1.2.v20150522.classpath"/>
+    <path refid="library.maven:_com.squareup.okhttp:okhttp:2.5.0.classpath"/>
+    <path refid="library.maven:_com.squareup.okio:okio:1.6.0.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.inject:jersey-hk2:2.26.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-locator:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2.external:aopalliance-repackaged:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-api:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_javax.inject:javax.inject:1.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-utils:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.javassist:javassist:3.22.0-cr2.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.containers:jersey-container-servlet-core:2.26.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2.external:javax.inject:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-server:2.26.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-client:2.26.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.media:jersey-media-jaxb:2.26.classpath"/>
+    <path refid="library.maven:_javax.validation:validation-api:1.1.0.final.classpath"/>
+    <path refid="library.maven:_javax.ws.rs:javax.ws.rs-api:2.1.classpath"/>
+    <path refid="library.maven:_javax.json.bind:javax.json.bind-api:1.0.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-util:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-mapper-asl:1.9.13.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-core-asl:1.9.13.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:8.0.11.classpath"/>
+    <path refid="library.maven:_com.google.protobuf:protobuf-java:2.6.0.classpath"/>
+    <path refid="library.maven:_com.googlecode.json-simple:json-simple:1.1.1.classpath"/>
+    <path refid="library.maven:_junit:junit:4.10.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.1.classpath"/>
+    <path refid="library.alpn-boot-8.1.12.v20180117.classpath"/>
+  </path>
+  
+  <path id="amf.module.classpath">
+    <path refid="${module.jdk.classpath.amf}"/>
+    <pathelement location="${amf.output.dir}"/>
+    <path refid="library.maven:_org.glassfish.jersey.media:jersey-media-json-jackson:2.26.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-common:2.26.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.2.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:osgi-resource-locator:1.0.1.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.ext:jersey-entity-filtering:2.26.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.8.4.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.8.4.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.8.4.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.8.4.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.http2:http2-server:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.http2:http2-common:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.http2:http2-hpack:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-server:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_javax.servlet:javax.servlet-api:3.1.0.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-http:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-io:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-alpn-server:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-servlet:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-security:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.alpn:alpn-api:1.1.2.v20150522.classpath"/>
+    <path refid="library.maven:_com.squareup.okhttp:okhttp:2.5.0.classpath"/>
+    <path refid="library.maven:_com.squareup.okio:okio:1.6.0.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.inject:jersey-hk2:2.26.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-locator:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2.external:aopalliance-repackaged:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-api:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_javax.inject:javax.inject:1.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-utils:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.javassist:javassist:3.22.0-cr2.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.containers:jersey-container-servlet-core:2.26.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2.external:javax.inject:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-server:2.26.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-client:2.26.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.media:jersey-media-jaxb:2.26.classpath"/>
+    <path refid="library.maven:_javax.validation:validation-api:1.1.0.final.classpath"/>
+    <path refid="library.maven:_javax.ws.rs:javax.ws.rs-api:2.1.classpath"/>
+    <path refid="library.maven:_javax.json.bind:javax.json.bind-api:1.0.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-util:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-mapper-asl:1.9.13.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-core-asl:1.9.13.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:8.0.11.classpath"/>
+    <path refid="library.maven:_com.google.protobuf:protobuf-java:2.6.0.classpath"/>
+    <path refid="library.maven:_com.googlecode.json-simple:json-simple:1.1.1.classpath"/>
+    <path refid="library.maven:_junit:junit:4.10.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.1.classpath"/>
+    <path refid="library.alpn-boot-8.1.12.v20180117.classpath"/>
+  </path>
+  
+  <path id="amf.runtime.module.classpath">
+    <pathelement location="${amf.testoutput.dir}"/>
+    <pathelement location="${amf.output.dir}"/>
+    <path refid="library.maven:_org.glassfish.jersey.media:jersey-media-json-jackson:2.26.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-common:2.26.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.2.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:osgi-resource-locator:1.0.1.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.ext:jersey-entity-filtering:2.26.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.8.4.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.8.4.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.8.4.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.8.4.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.http2:http2-server:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.http2:http2-common:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.http2:http2-hpack:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-server:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_javax.servlet:javax.servlet-api:3.1.0.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-http:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-io:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-alpn-server:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-servlet:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-security:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.alpn:alpn-api:1.1.2.v20150522.classpath"/>
+    <path refid="library.maven:_com.squareup.okhttp:okhttp:2.5.0.classpath"/>
+    <path refid="library.maven:_com.squareup.okio:okio:1.6.0.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.inject:jersey-hk2:2.26.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-locator:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2.external:aopalliance-repackaged:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-api:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_javax.inject:javax.inject:1.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-utils:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.javassist:javassist:3.22.0-cr2.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.containers:jersey-container-servlet-core:2.26.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2.external:javax.inject:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-server:2.26.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-client:2.26.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.media:jersey-media-jaxb:2.26.classpath"/>
+    <path refid="library.maven:_javax.validation:validation-api:1.1.0.final.classpath"/>
+    <path refid="library.maven:_javax.ws.rs:javax.ws.rs-api:2.1.classpath"/>
+    <path refid="library.maven:_javax.json.bind:javax.json.bind-api:1.0.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-util:9.3.3.v20150827.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-mapper-asl:1.9.13.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-core-asl:1.9.13.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:8.0.11.classpath"/>
+    <path refid="library.maven:_com.google.protobuf:protobuf-java:2.6.0.classpath"/>
+    <path refid="library.maven:_com.googlecode.json-simple:json-simple:1.1.1.classpath"/>
+    <path refid="library.maven:_junit:junit:4.10.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.1.classpath"/>
+    <path refid="library.alpn-boot-8.1.12.v20180117.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.amf">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.amf">
+    <patternset refid="excluded.from.module.amf"/>
+  </patternset>
+  
+  <path id="amf.module.sourcepath">
+    <dirset dir="${module.amf.basedir}">
+      <include name="src/main/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.amf" depends="compile.module.amf.production,compile.module.amf.tests" description="Compile module AMF"/>
+  
+  <target name="compile.module.amf.production" depends="register.custom.compilers" description="Compile module AMF; production classes">
+    <mkdir dir="${amf.output.dir}"/>
+    <javac2 destdir="${amf.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.amf}/javac">
+      <compilerarg line="${compiler.args.amf}"/>
+      <bootclasspath refid="amf.module.bootclasspath"/>
+      <classpath refid="amf.module.production.classpath"/>
+      <src refid="amf.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.amf"/>
+    </javac2>
+    
+    <copy todir="${amf.output.dir}">
+      <fileset dir="${module.amf.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.amf.tests" depends="register.custom.compilers,compile.module.amf.production" description="compile module AMF; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.amf" description="cleanup module">
+    <delete dir="${amf.output.dir}"/>
+    <delete dir="${amf.testoutput.dir}"/>
+  </target>
+</project>

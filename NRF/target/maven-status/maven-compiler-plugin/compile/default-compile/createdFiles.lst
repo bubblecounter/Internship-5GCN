@@ -1,0 +1,13 @@
+NRF\api\NRF.class
+NRF\model\SearchResult.class
+NRF\api\NRFServer.class
+NRF\resources\NFManagementResource$nfInstanceResource.class
+NRF\services\NFManagementService.class
+NRF\model\SubscriptionData.class
+NRF\resources\NFManagementResource.class
+NRF\model\NFProfile.class
+Database\DatabaseConnection.class
+NRF\model\NFRegistrationData.class
+NRF\model\ProblemDetails$param.class
+NRF\api\main.class
+NRF\model\ProblemDetails.class

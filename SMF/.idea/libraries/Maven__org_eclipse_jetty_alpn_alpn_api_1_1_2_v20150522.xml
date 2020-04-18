@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.eclipse.jetty.alpn:alpn-api:1.1.2.v20150522">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/alpn/alpn-api/1.1.2.v20150522/alpn-api-1.1.2.v20150522.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/alpn/alpn-api/1.1.2.v20150522/alpn-api-1.1.2.v20150522-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/alpn/alpn-api/1.1.2.v20150522/alpn-api-1.1.2.v20150522-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

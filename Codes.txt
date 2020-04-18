@@ -1,0 +1,4 @@
+java -Xbootclasspath/p:/C:/Users/{$username}/Downloads/alpn-boot-8.1.12.v20180117.jar -jar target/UDM.jar
+java -Xbootclasspath/p:/C:/Users/{$username}/Downloads/alpn-boot-8.1.12.v20180117.jar -jar target/SMF.jar
+java -Xbootclasspath/p:/C:/Users/{$username}/Downloads/alpn-boot-8.1.12.v20180117.jar -jar target/NRF.jar
+java -Xbootclasspath/p:/C:/Users/{$username}/Downloads/alpn-boot-8.1.12.v20180117.jar -jar target/AMF.jar

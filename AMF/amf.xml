@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="amf" default="all">
+  
+  
+  <property file="amf.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+    <include name="*.swc"/>
+    <include name="*.war"/>
+    <include name="*.zip"/>
+    <include name="*.ane"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.alpn-boot-8.1.12.v20180117.classpath">
+    <pathelement location="${basedir}/../../../../Downloads/alpn-boot-8.1.12.v20180117.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.8.4.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/com/fasterxml/jackson/core/jackson-annotations/2.8.4/jackson-annotations-2.8.4.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.fasterxml.jackson.core:jackson-core:2.8.4.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/com/fasterxml/jackson/core/jackson-core/2.8.4/jackson-core-2.8.4.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.8.4.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/com/fasterxml/jackson/core/jackson-databind/2.8.4/jackson-databind-2.8.4.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.8.4.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.8.4/jackson-module-jaxb-annotations-2.8.4.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.google.protobuf:protobuf-java:2.6.0.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/com/google/protobuf/protobuf-java/2.6.0/protobuf-java-2.6.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.googlecode.json-simple:json-simple:1.1.1.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.squareup.okhttp:okhttp:2.5.0.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/com/squareup/okhttp/okhttp/2.5.0/okhttp-2.5.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.squareup.okio:okio:1.6.0.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/com/squareup/okio/okio/1.6.0/okio-1.6.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.annotation:javax.annotation-api:1.2.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.inject:javax.inject:1.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/javax/inject/javax.inject/1/javax.inject-1.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.json.bind:javax.json.bind-api:1.0.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/javax/json/bind/javax.json.bind-api/1.0/javax.json.bind-api-1.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.servlet:javax.servlet-api:3.1.0.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.validation:validation-api:1.1.0.final.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.ws.rs:javax.ws.rs-api:2.1.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/javax/ws/rs/javax.ws.rs-api/2.1/javax.ws.rs-api-2.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_junit:junit:4.10.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/junit/junit/4.10/junit-4.10.jar"/>
+  </path>
+  
+  <path id="library.maven:_mysql:mysql-connector-java:8.0.11.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/mysql/mysql-connector-java/8.0.11/mysql-connector-java-8.0.11.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.codehaus.jackson:jackson-core-asl:1.9.13.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.codehaus.jackson:jackson-mapper-asl:1.9.13.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.eclipse.jetty.alpn:alpn-api:1.1.2.v20150522.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/eclipse/jetty/alpn/alpn-api/1.1.2.v20150522/alpn-api-1.1.2.v20150522.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.eclipse.jetty.http2:http2-common:9.3.3.v20150827.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/eclipse/jetty/http2/http2-common/9.3.3.v20150827/http2-common-9.3.3.v20150827.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.eclipse.jetty.http2:http2-hpack:9.3.3.v20150827.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/eclipse/jetty/http2/http2-hpack/9.3.3.v20150827/http2-hpack-9.3.3.v20150827.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.eclipse.jetty.http2:http2-server:9.3.3.v20150827.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/eclipse/jetty/http2/http2-server/9.3.3.v20150827/http2-server-9.3.3.v20150827.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.eclipse.jetty:jetty-alpn-server:9.3.3.v20150827.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/eclipse/jetty/jetty-alpn-server/9.3.3.v20150827/jetty-alpn-server-9.3.3.v20150827.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.eclipse.jetty:jetty-http:9.3.3.v20150827.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/eclipse/jetty/jetty-http/9.3.3.v20150827/jetty-http-9.3.3.v20150827.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.eclipse.jetty:jetty-io:9.3.3.v20150827.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/eclipse/jetty/jetty-io/9.3.3.v20150827/jetty-io-9.3.3.v20150827.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.eclipse.jetty:jetty-security:9.3.3.v20150827.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/eclipse/jetty/jetty-security/9.3.3.v20150827/jetty-security-9.3.3.v20150827.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.eclipse.jetty:jetty-server:9.3.3.v20150827.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/eclipse/jetty/jetty-server/9.3.3.v20150827/jetty-server-9.3.3.v20150827.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.eclipse.jetty:jetty-servlet:9.3.3.v20150827.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/eclipse/jetty/jetty-servlet/9.3.3.v20150827/jetty-servlet-9.3.3.v20150827.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.eclipse.jetty:jetty-util:9.3.3.v20150827.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/eclipse/jetty/jetty-util/9.3.3.v20150827/jetty-util-9.3.3.v20150827.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.hk2.external:aopalliance-repackaged:2.5.0-b42.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/glassfish/hk2/external/aopalliance-repackaged/2.5.0-b42/aopalliance-repackaged-2.5.0-b42.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.hk2.external:javax.inject:2.5.0-b42.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/glassfish/hk2/external/javax.inject/2.5.0-b42/javax.inject-2.5.0-b42.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.hk2:hk2-api:2.5.0-b42.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/glassfish/hk2/hk2-api/2.5.0-b42/hk2-api-2.5.0-b42.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.hk2:hk2-locator:2.5.0-b42.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/glassfish/hk2/hk2-locator/2.5.0-b42/hk2-locator-2.5.0-b42.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.hk2:hk2-utils:2.5.0-b42.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/glassfish/hk2/hk2-utils/2.5.0-b42/hk2-utils-2.5.0-b42.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.hk2:osgi-resource-locator:1.0.1.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/glassfish/hk2/osgi-resource-locator/1.0.1/osgi-resource-locator-1.0.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.jersey.containers:jersey-container-servlet-core:2.26.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/glassfish/jersey/containers/jersey-container-servlet-core/2.26/jersey-container-servlet-core-2.26.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.jersey.core:jersey-client:2.26.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/glassfish/jersey/core/jersey-client/2.26/jersey-client-2.26.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.jersey.core:jersey-common:2.26.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/glassfish/jersey/core/jersey-common/2.26/jersey-common-2.26.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.jersey.core:jersey-server:2.26.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/glassfish/jersey/core/jersey-server/2.26/jersey-server-2.26.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.jersey.ext:jersey-entity-filtering:2.26.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/glassfish/jersey/ext/jersey-entity-filtering/2.26/jersey-entity-filtering-2.26.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.jersey.inject:jersey-hk2:2.26.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/glassfish/jersey/inject/jersey-hk2/2.26/jersey-hk2-2.26.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.jersey.media:jersey-media-jaxb:2.26.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/glassfish/jersey/media/jersey-media-jaxb/2.26/jersey-media-jaxb-2.26.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.jersey.media:jersey-media-json-jackson:2.26.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/glassfish/jersey/media/jersey-media-json-jackson/2.26/jersey-media-json-jackson-2.26.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.hamcrest:hamcrest-core:1.1.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.javassist:javassist:3.22.0-cr2.classpath">
+    <pathelement location="${path.variable.maven_reposıtory}/org/javassist/javassist/3.22.0-CR2/javassist-3.22.0-CR2.jar"/>
+  </path>
+  
+  
+  <!-- Application Server Libraries -->
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <fileset dir="${javac2.home}">
+      <include name="javac2.jar"/>
+      <include name="jdom.jar"/>
+      <include name="asm-all*.jar"/>
+      <include name="forms-*.jar"/>
+    </fileset>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/module_amf.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.amf" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.amf" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.amf:jar" value="${basedir}/target"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.AMF.jar" value="${artifacts.temp.dir}/AMF.jar"/>
+  </target>
+  
+  <target name="artifact.amf:jar" depends="init.artifacts, compile.module.amf" description="Build &#39;AMF:jar&#39; artifact">
+    <property name="artifact.temp.output.amf:jar" value="${artifacts.temp.dir}/AMF_jar"/>
+    <mkdir dir="${artifact.temp.output.amf:jar}"/>
+    <jar destfile="${temp.jar.path.AMF.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${amf.output.dir}"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/eclipse/jetty/jetty-util/9.3.3.v20150827/jetty-util-9.3.3.v20150827.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/com/squareup/okhttp/okhttp/2.5.0/okhttp-2.5.0.jar"/>
+      <zipfileset src="${basedir}/../../../../Downloads/alpn-boot-8.1.12.v20180117.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/eclipse/jetty/alpn/alpn-api/1.1.2.v20150522/alpn-api-1.1.2.v20150522.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/eclipse/jetty/http2/http2-hpack/9.3.3.v20150827/http2-hpack-9.3.3.v20150827.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/mysql/mysql-connector-java/8.0.11/mysql-connector-java-8.0.11.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.8.4/jackson-module-jaxb-annotations-2.8.4.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/glassfish/jersey/inject/jersey-hk2/2.26/jersey-hk2-2.26.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/glassfish/hk2/hk2-api/2.5.0-b42/hk2-api-2.5.0-b42.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/com/fasterxml/jackson/core/jackson-databind/2.8.4/jackson-databind-2.8.4.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/javax/ws/rs/javax.ws.rs-api/2.1/javax.ws.rs-api-2.1.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/glassfish/jersey/containers/jersey-container-servlet-core/2.26/jersey-container-servlet-core-2.26.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/glassfish/hk2/osgi-resource-locator/1.0.1/osgi-resource-locator-1.0.1.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/glassfish/jersey/media/jersey-media-json-jackson/2.26/jersey-media-json-jackson-2.26.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/glassfish/hk2/hk2-utils/2.5.0-b42/hk2-utils-2.5.0-b42.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/glassfish/hk2/external/javax.inject/2.5.0-b42/javax.inject-2.5.0-b42.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/javax/inject/javax.inject/1/javax.inject-1.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/com/fasterxml/jackson/core/jackson-annotations/2.8.4/jackson-annotations-2.8.4.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/glassfish/jersey/core/jersey-common/2.26/jersey-common-2.26.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/glassfish/jersey/core/jersey-server/2.26/jersey-server-2.26.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/eclipse/jetty/http2/http2-server/9.3.3.v20150827/http2-server-9.3.3.v20150827.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/javassist/javassist/3.22.0-CR2/javassist-3.22.0-CR2.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/eclipse/jetty/jetty-io/9.3.3.v20150827/jetty-io-9.3.3.v20150827.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/eclipse/jetty/jetty-security/9.3.3.v20150827/jetty-security-9.3.3.v20150827.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/glassfish/jersey/media/jersey-media-jaxb/2.26/jersey-media-jaxb-2.26.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/com/squareup/okio/okio/1.6.0/okio-1.6.0.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/javax/json/bind/javax.json.bind-api/1.0/javax.json.bind-api-1.0.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/com/google/protobuf/protobuf-java/2.6.0/protobuf-java-2.6.0.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/glassfish/jersey/core/jersey-client/2.26/jersey-client-2.26.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/eclipse/jetty/http2/http2-common/9.3.3.v20150827/http2-common-9.3.3.v20150827.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/com/fasterxml/jackson/core/jackson-core/2.8.4/jackson-core-2.8.4.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/eclipse/jetty/jetty-server/9.3.3.v20150827/jetty-server-9.3.3.v20150827.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/eclipse/jetty/jetty-alpn-server/9.3.3.v20150827/jetty-alpn-server-9.3.3.v20150827.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/junit/junit/4.10/junit-4.10.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/glassfish/jersey/ext/jersey-entity-filtering/2.26/jersey-entity-filtering-2.26.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/eclipse/jetty/jetty-servlet/9.3.3.v20150827/jetty-servlet-9.3.3.v20150827.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/glassfish/hk2/hk2-locator/2.5.0-b42/hk2-locator-2.5.0-b42.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/eclipse/jetty/jetty-http/9.3.3.v20150827/jetty-http-9.3.3.v20150827.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/glassfish/hk2/external/aopalliance-repackaged/2.5.0-b42/aopalliance-repackaged-2.5.0-b42.jar"/>
+      <zipfileset src="${path.variable.maven_reposıtory}/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar"/>
+    </jar>
+    <copy file="${temp.jar.path.AMF.jar}" tofile="${artifact.temp.output.amf:jar}/AMF.jar"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.amf:jar" description="Build all artifacts">
+    <mkdir dir="${artifact.output.amf:jar}"/>
+    <copy todir="${artifact.output.amf:jar}">
+      <fileset dir="${artifact.temp.output.amf:jar}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>
