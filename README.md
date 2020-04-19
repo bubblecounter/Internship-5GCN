@@ -29,7 +29,7 @@ The jar files can only be run by adding the apln.jar file to the Xbootclasspath.
 An example command is below <br/>
 java -Xbootclasspath/p:/C:/Users/{$userName}/Downloads/alpn-boot-8.1.12.v20180117.jar -jar target/UDM.jar
 
-# Implemented Scenarious
+# Implemented Scenarios
 ## NRF Services
 ![NRF Service1](https://github.com/bubblecounter/Internship-5GCN/blob/master/5GCN%20Schemes/NRF%20Serviecs/NRF%20Services-1.png? "NRF Service")
 ![NRF Service2](https://github.com/bubblecounter/Internship-5GCN/blob/master/5GCN%20Schemes/NRF%20Serviecs/NRF%20Services-2.png? "NRF Service2")
@@ -39,7 +39,7 @@ java -Xbootclasspath/p:/C:/Users/{$userName}/Downloads/alpn-boot-8.1.12.v2018011
 ![UDM Service1](https://github.com/bubblecounter/Internship-5GCN/blob/master/5GCN%20Schemes/UDM%20Services/UDM%20Services-1.png? "UDM Service")
 ![UDM Service2](https://github.com/bubblecounter/Internship-5GCN/blob/master/5GCN%20Schemes/UDM%20Services/UDM%20Services-2.png? "UDM Service")
 
-## Example Scenarious
+## Example Scenarios
 ### PDU Session Creation
 ![Scenario 1](https://github.com/bubblecounter/Internship-5GCN/blob/master/5GCN%20Schemes/SMF%20Services/PDU%20Session%20Creation-1.png?  "Scenario 1")
 ### AMF Registration
