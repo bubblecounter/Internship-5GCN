@@ -36,11 +36,11 @@ java -Xbootclasspath/p:/C:/Users/{$userName}/Downloads/alpn-boot-8.1.12.v2018011
 ![NRF Service3](https://github.com/bubblecounter/Internship-5GCN/blob/master/5GCN%20Schemes/NRF%20Serviecs/NRF%20Services-3.png? "NRF Service3")
 
 ## UDM Services
-![UDM Service1](https://github.com/bubblecounter/Internship-5GCN/blob/master/5GCN%20Schemes/UDM%20Services/UDM%20Services-1.png?"UDM Service")
+![UDM Service1](https://github.com/bubblecounter/Internship-5GCN/blob/master/5GCN%20Schemes/UDM%20Services/UDM%20Services-1.png? "UDM Service")
 ![UDM Service2](https://github.com/bubblecounter/Internship-5GCN/blob/master/5GCN%20Schemes/UDM%20Services/UDM%20Services-2.png? "UDM Service")
 
 ## Example Scenarious
 ### PDU Session Creation
-![Scenario 1](https://github.com/bubblecounter/Internship-5GCN/blob/master/5GCN%20Schemes/SMF%20Services/PDU%20Session%20Creation-1.png? "Scenario 1")
+![Scenario 1](https://github.com/bubblecounter/Internship-5GCN/blob/master/5GCN%20Schemes/SMF%20Services/PDU%20Session%20Creation-1.png?  "Scenario 1")
 ### AMF Registration
-![Scenario 2](https://github.com/bubblecounter/Internship-5GCN/blob/master/5GCN%20Schemes/UDM%20Services/AMFRegistration-1.png? "Scenario 2")
+![Scenario 2](https://github.com/bubblecounter/Internship-5GCN/blob/master/5GCN%20Schemes/UDM%20Services/AMFRegistration-1.png?  "Scenario 2")
