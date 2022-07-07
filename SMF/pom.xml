@@ -12,7 +12,7 @@
     <properties>
         <main.class>SMF.api.main</main.class>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jetty.version>9.3.3.v20150827</jetty.version>
+        <jetty.version>9.4.48.v20220622</jetty.version>
         <jersey.version>2.26</jersey.version>
         <jetty.alpn.api.version>1.1.2.v20150522</jetty.alpn.api.version>
     </properties>
